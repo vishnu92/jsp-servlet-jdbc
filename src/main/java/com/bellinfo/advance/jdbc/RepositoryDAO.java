@@ -110,7 +110,7 @@ public class RepositoryDAO {
 			// Connection connection = null;
 			con = DriverManager.getConnection(
 					"jdbc:postgresql://127.0.0.1:5432/postgres", "postgres",
-					"abcd12345");
+					"admin");
 		} catch (SQLException e) {
 			System.out.println("Connection Failed");
 			e.printStackTrace();

@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Registration Success page</title>
 </head>
 <body>
+<jsp:useBean id="regDetails" class="com.bellinfo.advance.modal.RegistrationDetails" scope="request"> </jsp:useBean>
+<jsp:getProperty property="fullname" name="regDetails"/>
+
 <%
  String validationData = null;
  if(request.getAttribute("validationInfo")!=null){

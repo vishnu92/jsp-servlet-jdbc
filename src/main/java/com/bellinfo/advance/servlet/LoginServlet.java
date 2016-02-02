@@ -41,10 +41,15 @@ public class LoginServlet extends HttpServlet {
 		
 		req.setAttribute("info", message);
 		req.setAttribute("loggedUser", ld);
-			
+			if(message.equals("oops...login failed"))
+				{
+				RequestDispatcher rd = req.getRequestDispatcher("MyErrorPage.jsp");
+				rd.forward(req, res);
+				}
+			else{
 		RequestDispatcher rd = req.getRequestDispatcher("result.jsp");
 		rd.forward(req, res);
-		
+				}
 	}
 
 }

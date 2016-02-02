@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<h3>Data before going to body </h3>
+<title>Index page</title>
 </head>
 <body>
-<h3>Data before main.jsp </h3>
-<%-- <jsp:forward page ="main.jsp"/> --%>
-<h3>Data after main.jsp </h3>
+<jsp:forward page="main.jsp">
+<jsp:param value="vishnu" name="vis"/>
+</jsp:forward>
+
 </body>
 </html>

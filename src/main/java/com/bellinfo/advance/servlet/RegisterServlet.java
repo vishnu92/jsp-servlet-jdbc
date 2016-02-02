@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.bellinfo.advance.jdbc.RepositoryDAO;
 import com.bellinfo.advance.modal.RegistrationDetails;
 
+@SuppressWarnings("serial")
 public class RegisterServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {
-
+		RegistrationDetails regdetails= null;
 		String fullname = req.getParameter("fullname");
 		String email = req.getParameter("email");
 		String username = req.getParameter("username");
@@ -29,7 +30,7 @@ public class RegisterServlet extends HttpServlet {
 		if (validation != null) {
 			req.setAttribute("validationInfo", validation);
 		} else {
-			RegistrationDetails regdetails = new RegistrationDetails();
+			regdetails = new RegistrationDetails();
 			regdetails.setFullname(fullname);
 			regdetails.setEmail(email);
 			regdetails.setUsername(username);
@@ -45,6 +46,9 @@ public class RegisterServlet extends HttpServlet {
 			}
 		}
 
+		req.setAttribute("regDetails", regdetails);
+		
+		
 		RequestDispatcher rd = req
 				.getRequestDispatcher("RegistrationSuccess.jsp");
 		rd.forward(req, res);
